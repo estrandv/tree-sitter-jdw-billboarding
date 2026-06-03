@@ -1,0 +1,72 @@
+==================
+Plain track (shuttle content)
+==================
+
+c4 d4 e4 f4
+
+---
+
+(source_file
+  (track
+    (shuttle_content)))
+
+==================
+Track with metadata override
+==================
+
+<harmony;amp*1.5> g4 a4 b4 c5
+
+---
+
+(source_file
+  (track
+    (track_metadata
+      (group_override)
+      (arg_list
+        (arg
+          (arg_name)
+          (operator)
+          (number))))
+    (shuttle_content)))
+
+==================
+Track with group-only metadata
+==================
+
+<rook> 3:4 17:4
+
+---
+
+(source_file
+  (track
+    (track_metadata
+      (group_override))
+    (shuttle_content)))
+
+==================
+Indented track with inline comment
+==================
+
+    c4 d4  # melody
+
+---
+
+(source_file
+  (track
+    (shuttle_content))
+  (comment))
+
+==================
+Multi-line section via line continuation
+==================
+
+<reed> (c6:0 c5:1 \
+e5:2 x:1):sus4
+
+---
+
+(source_file
+  (track
+    (track_metadata
+      (group_override))
+    (shuttle_content)))

@@ -1,0 +1,146 @@
+==================
+Comment line
+==================
+
+# just a comment
+
+---
+
+(source_file
+  (comment))
+
+==================
+Group filter
+==================
+
+>>> drums bass keys
+
+---
+
+(source_file
+  (group_filter
+    (group_name)
+    (group_name)
+    (group_name)))
+
+==================
+Synth header
+==================
+
+@moogBass:bass amp0.5,sus2.0
+
+---
+
+(source_file
+  (synth_header
+    (instrument_name)
+    (group_name)
+    (arg_list
+      (arg
+        (arg_name)
+        (number))
+      (arg
+        (arg_name)
+        (number)))))
+
+==================
+Selected sampler header with pad config
+==================
+
+*@SP_Roland808:drums ofs0,amp0.6 1:0 2:14
+
+---
+
+(source_file
+  (synth_header
+    (selected)
+    (instrument_name)
+    (group_name)
+    (arg_list
+      (arg
+        (arg_name)
+        (number))
+      (arg
+        (arg_name)
+        (number)))
+    (additional_config)))
+
+==================
+Effect definition
+==================
+
+€reverb:main room0.9,mix0.5
+
+---
+
+(source_file
+  (effect_definition
+    (effect_type)
+    (effect_id)
+    (arg_list
+      (arg
+        (arg_name)
+        (number))
+      (arg
+        (arg_name)
+        (number)))))
+
+==================
+Effect definition without args
+==================
+
+€delay:a
+
+---
+
+(source_file
+  (effect_definition
+    (effect_type)
+    (effect_id)))
+
+==================
+Default statement
+==================
+
+DEFAULT amp0.5,sus1.0
+
+---
+
+(source_file
+  (default_statement
+    (arg_list
+      (arg
+        (arg_name)
+        (number))
+      (arg
+        (arg_name)
+        (number)))))
+
+==================
+Command with type and address args
+==================
+
+COMMAND /set_scale c maj 4
+
+---
+
+(source_file
+  (command
+    (command_type)
+    (address)
+    (command_arg)
+    (command_arg)
+    (command_arg)))
+
+==================
+Bare command
+==================
+
+/transpose 5
+
+---
+
+(source_file
+  (command
+    (address)
+    (command_arg)))
