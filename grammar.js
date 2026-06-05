@@ -8,7 +8,7 @@
 // @ts-check
 
 /*
-  JDW Billboarding — see jdw-billboarding-lib/BILLBOARD_SPEC.md
+  JDW Billboarding — see BILLBOARD_SPEC.md
 
   Billboard is a LINE-BASED DSL that wraps Shuttle Notation. Each line is
   classified by its leading symbol into one of a handful of statement types.
