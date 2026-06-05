@@ -1,3 +1,15 @@
+# JDW Billboarding
+
+Tree-sitter grammar for [Billboard Notation](https://github.com/estrandv/jdw-billboarding-lib) — a domain-specific language for multi-track musical composition that extends Shuttle Notation with organizational structure, effects, routing, and real-time control.
+
+This repository is the canonical language specification. Parsing is handled by the reference Python implementation at [jdw-billboarding-lib](https://github.com/estrandv/jdw-billboarding-lib).
+
+Track content is written in [Shuttle Notation](https://github.com/estrandv/tree-sitter-shuttle-notation) and delegated via tree-sitter injection queries.
+
+MIT — Copyright (c) 2026 Emil Strandvik
+
+---
+
 # Billboard Notation Language Specification
 
 **Version:** 1.0  
@@ -19,7 +31,7 @@
 
 ## Overview
 
-Billboard Notation is a domain-specific language for defining multi-track musical compositions with effects, routing, and real-time control. It extends [Shuttle Notation](https://github.com/estrandv/tree-sitter-shuttle-notation/blob/main/LANGUAGE_SPEC.md) to provide:
+Billboard Notation is a domain-specific language for defining multi-track musical compositions with effects, routing, and real-time control. It extends [Shuttle Notation](https://github.com/estrandv/tree-sitter-shuttle-notation/blob/main/README.md) to provide:
 
 - **Multi-track sequencing**: Multiple instruments playing simultaneously
 - **Effect chains**: Per-section audio effects with parameters
@@ -773,8 +785,8 @@ shuttle_seq  ::= (* See Shuttle Notation spec *)
 
 ## References
 
-- Shuttle Notation Spec: [tree-sitter-shuttle-notation/LANGUAGE_SPEC.md](https://github.com/estrandv/tree-sitter-shuttle-notation/blob/main/LANGUAGE_SPEC.md)
-- Reference Implementation: `jdw_billboarding/lib/`
+- Shuttle Notation Spec: [tree-sitter-shuttle-notation/README.md](https://github.com/estrandv/tree-sitter-shuttle-notation/blob/main/README.md)
+- Reference Implementation: [jdw-billboarding-lib](https://github.com/estrandv/jdw-billboarding-lib)
 - Test Suite: `jdw_billboarding/tests/` (if exists)
 - VSCode Extension: https://github.com/estrandv/jdw-billboarding-vscode
 
