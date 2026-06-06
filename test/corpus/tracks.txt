@@ -53,8 +53,7 @@ Indented track with inline comment
 
 (source_file
   (track
-    (shuttle_content))
-  (comment))
+    (shuttle_content)))
 
 ==================
 Multi-line section via line continuation

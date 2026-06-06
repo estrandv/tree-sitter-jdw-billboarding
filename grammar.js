@@ -28,15 +28,16 @@
 module.exports = grammar({
   name: "jdw_billboarding",
 
-  extras: ($) => [/[ \t]/, /\\\r?\n/, $.comment],
+  extras: ($) => [/[ \t]/, /\\\r?\n/],
 
   rules: {
     source_file: ($) => seq(repeat($._line), optional($._statement)),
 
-    // Full-line or inline `# ...` comments.
+    // Full-line `# ...` comments  (NOT in extras — handled explicitly in _line
+    // so `#` inside shuttle content like `f#5` isn't consumed as a comment).
     comment: () => /#[^\n]*/,
 
-    _line: ($) => seq(optional($._statement), $._newline),
+    _line: ($) => seq(optional($.comment), optional($._statement), optional($.comment), $._newline),
     _newline: () => /\r?\n/,
 
     _statement: ($) =>
@@ -99,8 +100,10 @@ module.exports = grammar({
     // Opaque rest-of-line Shuttle sequence; highlighted via injection.
     // Must not start with a reserved leading symbol (handled by classification).
     // A trailing `\`-newline continues the sequence onto the next line.
+    // Note: `#` IS allowed inside shuttle content (e.g. `f#5`). Full-line `#`
+    // comments are handled by the `comment` rule in `_line`, not by extras.
     shuttle_content: () =>
-      token(prec(-2, /[^\s#<>@/€]([^\n#]|\\\r?\n)*/)),
+      token(prec(-2, /[^\s<>@/€]([^\n]|\\\r?\n)*/)),
 
     // Comma-separated argument list (Shuttle arg syntax, sans the leading ':').
     arg_list: ($) => seq($.arg, repeat(seq(",", $.arg))),
