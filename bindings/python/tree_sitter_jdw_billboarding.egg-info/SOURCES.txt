@@ -1,3 +1,4 @@
+README.md
 pyproject.toml
 setup.py
 bindings/python/tree_sitter_jdw_billboarding/__init__.py
